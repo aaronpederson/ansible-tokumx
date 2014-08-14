@@ -1,0 +1,15 @@
+---
+- name: Import Signing Key | tokumx
+  apt_key:
+    state: present
+    keyserver: 'hkp://keyserver.ubuntu.com:80'
+    id: '505A7412'
+
+- name: Import Repository | tokumx
+  apt_repository:
+    state: present
+    repo: 'deb [arch=amd64] http://s3.amazonaws.com/tokumx-debs trusty main'
+  notify: Update Package Cache
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
