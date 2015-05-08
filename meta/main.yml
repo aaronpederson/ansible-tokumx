@@ -1,5 +1,16 @@
 ---
 dependencies:
-  - role: meta/repository
-    repository_key: '0x70a4e325505a7412'
-    repository_url: 'deb [arch=amd64] http://s3.amazonaws.com/tokumx-debs trusty main'
+  - role: colstrom.apt-repository
+    repository_key: "0x70a4e325505a7412"
+    repository_url: "deb [arch=amd64] http://s3.amazonaws.com/tokumx-debs {{ ansible_distribution_release }} main"
+galaxy_info:
+  author: "Chris Olstrom"
+  company: "TELUS digital"
+  description: "TokuMX is a high-performance drop-in replacement for MongoDB."
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - trusty
+  categories:
+    - database:nosql
