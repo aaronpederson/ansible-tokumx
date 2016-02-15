@@ -1,2 +1,7 @@
 ---
-- include: install.yml
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items:
+    - tokumx
